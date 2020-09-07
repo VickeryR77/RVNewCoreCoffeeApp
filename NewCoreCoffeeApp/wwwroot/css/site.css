@@ -27,17 +27,12 @@ a {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+  font-size: 18px;
 }
 @media (min-width: 768px) {
   html {
     font-size: 16px;
   }
-}
-
-.background
-{
-color: #000000
 }
 
 .border-top {

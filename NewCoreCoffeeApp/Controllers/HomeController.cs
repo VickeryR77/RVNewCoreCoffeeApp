@@ -79,6 +79,8 @@ namespace NewCoreCoffeeApp.Controllers
                     RoastPreference = roastpreference,
                     MusicPreference = musicpreference,
                     Password = password,
+                    Time = "",
+                    StreetAddress = ""
                 };
 
                 return View("RegistrationComplete", user); //Finish registering with the user information.
@@ -106,7 +108,8 @@ namespace NewCoreCoffeeApp.Controllers
             return View();
         }
 
-        public IActionResult RegistrationComplete()
+
+        public IActionResult RegistrationComplete(WebUser user)
         {
             return View();
         }
@@ -118,7 +121,7 @@ namespace NewCoreCoffeeApp.Controllers
             return View();
         }
 
-        
+        [HttpPost]
         public IActionResult Menu(string size, string roastpreference, string beanorigin, string extra1, string extra2, string extra3, WebUser user)
         {
 
@@ -141,7 +144,6 @@ namespace NewCoreCoffeeApp.Controllers
         [HttpPost]
         public IActionResult DeliveryReceipt()
         {
-
             return View();
         }
 
@@ -150,13 +152,13 @@ namespace NewCoreCoffeeApp.Controllers
             return View();
         }
 
+
         public IActionResult ThankYou1(WebUser user, string Time)
         {
             user.Time = Time;
             return View(user);
         }
-
-        [HttpPost]
+        
         public IActionResult ThankYou2(WebUser user, string Address)
         {
             user.StreetAddress = Address;
