@@ -1,0 +1,57 @@
+﻿@model NewCoreCoffeeApp.Models.WebUser
+
+    <!DOCTYPE html>
+
+    <head>
+        <style>
+            div.cart {
+                position: fixed;
+                top: 225px;
+                right: 150px;
+                width: 700px;
+                border: 1px solid #000000;
+                background: border-box
+            }
+
+            div.label {
+                position: fixed;
+                top: 200px;
+                right: 150px;
+                width: 700px;
+                border: 1px solid #000000;
+                background: border-box
+            }
+        </style>
+    </head>
+
+    @{
+        ViewData["Title"] = "ThankYou1";
+        decimal totalCost = 0.00m;
+    }
+
+    <h1><h1>Pick Up Receipt: Order No. 445</h1></h1>
+
+    <p>Thank you for your order!</p>
+
+    <p>It will be ready at @Model.Time</p>
+
+    <div class="cart">
+        @{foreach (var coffee in WebUser.Cart)
+
+            {
+                <div>
+                    @coffee
+                    <hr />
+                </div>
+            }
+        }
+
+        @{ foreach (var coffee in WebUser.Cart)
+            {
+                totalCost += coffee.Price;
+            }
+        }
+
+        Total Amount Owed: @totalCost
+    </div>
+

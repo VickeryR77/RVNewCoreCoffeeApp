@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <style>
+        div.cart {
+            position: fixed;
+            top: 105px;
+            right: 150px;
+            width: 700px;
+            border: 1px solid #000000;
+            background:border-box
+        }
+
+        div.label {
+            position: fixed;
+            top: 80px;
+            right: 150px;
+            width: 700px;
+            border: 1px solid #000000;
+            background:border-box
+        }
+    </style>
+</head>
+
+    @{
+        ViewData["Title"] = "Menu";
+        decimal totalCost = 0.00m;
+    }
+
+    <h1>Menu</h1> <div class="label"> Cart: </div>
+
+    <form action="/Home/Menu" method="post">
+        <label for="drinkselection">Drink Selection:</label><br />
+        Size: <br />
+        <select name="size">
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+            <option value="XTRA Big Gulp">XTRA Big Gulp</option>
+            <option value="Gallon">Gallon</option>
+        </select> <br /><br />
+
+        Bean Origin: <br />
+        <select name="beanorigin">
+            <option value="Bolivia">Bolivia</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Columbia">Columbia</option>
+            <option value="Kenya">Kenya</option>
+            <option value="Sumatra">Sumatra</option>
+        </select> <br /><br />
+
+        Roast Preference: <br />
+        <select name="roastpreference">
+            <option value="Light">Light</option>
+            <option value="Light-Medium">Light-Medium</option>
+            <option value="Medium">Medium</option>
+            <option value="Medium-Dark">Medium-Dark</option>
+            <option value="Dark">Dark</option>
+        </select> <br /><br />
+
+        Extras: <br />
+        <input type="checkbox" id="extra1" name="extra1" value="Cream">
+        <label for="extra1"> Cream</label><br>
+        <input type="checkbox" id="extra2" name="extra2" value="Sugar">
+        <label for="extra2"> Sugar</label><br>
+        <input type="checkbox" id="extra3" name="extra3" value="Whipped Topping">
+        <label for="extra3"> Whipped Topping</label><br>
+
+
+        <input id="submit" class="btn btn-dark" type="submit" value="ADD ITEM" /><br /><br />
+
+        
+
+        <div class="cart">
+
+            @{foreach (var coffee in WebUser.Cart)
+
+                {
+                    <div>
+                        @coffee
+                        <hr />
+                    </div>
+                }
+            }
+        </div>
+
+
+    </form>
+    <form action="/Home/DeliveryReceipt" method="post">
+        <input id="submit2" class="btn btn-dark" type="submit" value="CHECKOUT FOR DELIVERY" /><br /><br />
+    </form>
+
+    <form action="/Home/PickUpReceipt" method="post">
+        <input id="submit2" class="btn btn-dark" type="submit" value="CHECKOUT FOR PICKUP" /><br /><br />
+    </form>
+
+    
