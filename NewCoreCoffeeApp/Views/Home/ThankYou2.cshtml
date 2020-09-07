@@ -21,8 +21,13 @@
                 border: 1px solid #000000;
                 background: border-box
             }
+            body {
+                background-color: darkred;
+            }
         </style>
     </head>
+
+<body></body>
 
     @{
         ViewData["Title"] = "ThankYou2";
@@ -31,7 +36,7 @@
 
     <h1><h1>Delivery Receipt: Order No. 445</h1></h1>
 
-    <p>Thank you for your order!</p>
+    <p>Thank you for your order, @Model.FirstName!</p>
 
     <p>It will arrive at @Model.StreetAddress</p>
     <p>Expect us in about 30 minutes!</p>

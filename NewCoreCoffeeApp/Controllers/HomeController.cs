@@ -112,8 +112,9 @@ namespace NewCoreCoffeeApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Menu()
+        public IActionResult Menu(WebUser user)
         {
+            WebUser.Cart.Clear();
             return View();
         }
 
@@ -137,15 +138,16 @@ namespace NewCoreCoffeeApp.Controllers
                 return View("Menu", user);
         }
 
-        public IActionResult DeliveryReceipt(WebUser user)
+        [HttpPost]
+        public IActionResult DeliveryReceipt()
         {
 
-            return View(user);
+            return View();
         }
 
-        public IActionResult PickUpReceipt(WebUser user)
+        public IActionResult PickUpReceipt()
         {
-            return View(user);
+            return View();
         }
 
         public IActionResult ThankYou1(WebUser user, string Time)
@@ -154,6 +156,7 @@ namespace NewCoreCoffeeApp.Controllers
             return View(user);
         }
 
+        [HttpPost]
         public IActionResult ThankYou2(WebUser user, string Address)
         {
             user.StreetAddress = Address;

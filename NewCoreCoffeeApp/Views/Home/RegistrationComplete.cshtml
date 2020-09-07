@@ -1,17 +1,35 @@
 ﻿@model NewCoreCoffeeApp.Models.WebUser
 
-@{
-    ViewData["Title"] = "RegistrationComplete";
-}
+    <!DOCTYPE html>
+    <html>
 
-<h1 style="color:forestgreen">Success!</h1>
+    <head>
+        <style>
+            body {
+                background-color: darkred;
+            }
+        </style>
+    </head>
 
-<h2>Welcome to FreshCoffeeCo, @Model.FirstName @Model.LastName from @Model.State!</h2><br /><br />
 
-<p>Your Roast Preference of @Model.RoastPreference will be set to your profile.</p>
-<p>Website Ambience saved to @Model.MusicPreference</p><br />
+    <body>
+    </body>
 
-<p>An email will be sent to @Model.Email with more details!</p>
+    @{
+        ViewData["Title"] = "RegistrationComplete";
+    }
 
-<a href="/Home/Menu">Click here to begin your order</a>
+    <h1 style="color:forestgreen">Success!</h1>
+
+    <h2>Welcome to CAFEVANIA, @Model.FirstName @Model.LastName from @Model.State!</h2>
+    <br />
+    <br />
+
+    <p>Your Roast Preference of @Model.RoastPreference will be set to your profile.</p>
+    <p>Website Ambience saved to @Model.MusicPreference</p>
+    <br />
+
+    <p>An email will be sent to @Model.Email with more details!</p>
+
+    <a href="/Home/Menu">Click here to begin your order</a>
 

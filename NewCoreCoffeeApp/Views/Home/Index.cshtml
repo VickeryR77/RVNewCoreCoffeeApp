@@ -1,8 +1,45 @@
-﻿@{
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: darkred;
+        }
+
+        div.richter {
+            position: fixed;
+            top: 200px;
+            right: 780px;
+            width: 150px;
+        }
+
+        div.closing {
+            position: fixed;
+            top: 400px;
+            right: 450px;
+        }
+    </style>
+</head>
+
+
+<body>
+</body>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2 class="display-4">What is a man?!</h2>
+    <p style="color:white">Nothing but a miserable little pile of caffeine!</p><br /> <br />
 </div>
+
+<div class="closing">
+    <h2 style="color:white"> Why not buy some from us? <a href="Home/Register">Register today!</a></h2>
+</div>
+
+<div class="richter">
+    <img src="./images/richter.png" />
+</div><br />
+
