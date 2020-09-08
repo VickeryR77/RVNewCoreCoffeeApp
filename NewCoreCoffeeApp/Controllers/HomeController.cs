@@ -60,15 +60,15 @@ namespace NewCoreCoffeeApp.Controllers
         [HttpPost]
         public IActionResult Register(string firstname, string lastname, string email, string password, string currentstate, string roastpreference, string musicpreference)
         {
-            bool validFirstName = (!(firstname is null) && firstname != ""); //Is Valid if firstname is not null or blank.
+            bool isValidFirstName = !(firstname is null) && firstname != ""; //Is Valid if firstname is not null or blank.
 
-            bool validLastName = (!(lastname is null) && lastname != ""); //Is Valid if lastname is not null or blank.
+            bool isValidLastName = !(lastname is null) && lastname != ""; //Is Valid if lastname is not null or blank.
 
-            bool validEmail = (!(email is null) && email != "" && Regex.IsMatch(email, @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$")); //Email Regex Reqs.
+            bool isValidEmail = !(email is null) && email != "" && email.Contains("@"); //Email Regex Reqs.
 
-            bool validPassword = (!(password is null) && password != "" && Regex.IsMatch(password, @"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$")); //Password Regex Reqs.
+            bool isValidPassword = !(password is null) && password != "" && Regex.IsMatch(password, @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"); //Password Regex Reqs.
 
-            if (validFirstName && validLastName && validEmail && validPassword) //If ALL checks out...
+            if (isValidFirstName && isValidLastName && isValidEmail && isValidPassword) //If ALL checks out...
             {
                 WebUser user = new WebUser() //Create a new webuser with the information
                 {
@@ -97,13 +97,13 @@ namespace NewCoreCoffeeApp.Controllers
 
             ViewData["pass"] = password;
 
-            ViewData["firstnamecolor"] = validFirstName ? "#20FF20" : "#FF2020"; //Border colors are determined by Validity, if false then view the posted
+            ViewData["firstnamecolor"] = isValidFirstName ? "#35DF86" : "#DF3547"; //Border colors are determined by Validity, if false then view the posted
 
-            ViewData["lastnamecolor"] = validLastName ? "#20FF20" : "#FF2020";
+            ViewData["lastnamecolor"] = isValidLastName ? "#35DF86" : "#DF3547";
 
-            ViewData["emailcolor"] = validEmail ? "#20FF20" : "#FF2020";
+            ViewData["emailcolor"] = isValidEmail ? "#35DF86" : "#DF3547";
 
-            ViewData["passcolor"] = validPassword ? "#20FF20" : "#FF2020";
+            ViewData["passcolor"] = isValidPassword ? "#35DF86" : "#DF3547";
 
             return View();
         }
